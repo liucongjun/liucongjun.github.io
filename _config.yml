@@ -1,15 +1,15 @@
 # Site settings
-title: Hanson
+title: liucongjun
 header-img: "img/facebook.jpg"
 tagline: "cn"  
-description: "Hanson|Think Different"  
+description: "liucongjun|Think Different"  
 baseurl: ""
-url: "http://zyphs21.github.io"  
+url: "http://liucongjun.github.io"  
 
 # About/contact
 owner: 
-  name: "张远平"
-  email: yuanpingzhang123@gmail.com
+  name: "刘从军"
+  email: 15038316985@qq.com
   bio: ""
 
 # Data
@@ -18,10 +18,8 @@ favicon: img/favicon.png
 
 douban_username:  
 twitter_username: 
-github_username: zyphs21
-weibo_username: 汉森HS
+github_username: liucongjun
 facebook_username:
-zhihu_username: zhang-yi-sen-46
 
 # Build settings  
 # use Github Flavored Markdown !important  
@@ -44,16 +42,16 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "hanson"
+      author: "liucongjun"
       header-img: "img/facebook.jpg" # We don't want posts without a header image, that whould mean white on white
 
 # Comments 
 comments :
   provider : duoshuo
   duoshuo :
-    short_name : hanson
+    short_name : liucongjun
   disqus :
-      short_name : hanson
+      short_name : liucongjun
 
 # Analytics and webmaster tools stuff goes here
 google_analytics: 

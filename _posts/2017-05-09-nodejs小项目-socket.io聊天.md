@@ -11,7 +11,7 @@ description: 一个20行代码的socket.io 聊天
 网络框架
 第一个目标是设置一个简单的HTML网页，提供表单和消息列表。为此，我们将使用Node.JS Web框架express。确保Node.js的安装。
 
-首先我们来创建一个package.json描述我们项目的清单文件。我建议你将它放在一个专用的空目录中（我会打电话给我chat-example）。
+首先我们来创建一个package.json描述我们项目的清单文件。我建议你将它放在一个专用的空目录中（如hat-example）。
 
 
 {

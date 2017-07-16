@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  前端开发工具-快速搭建本地服务器并且热刷新 .
-date: 2016-02-29
+title:  前端开发工具-快速搭建本地服务器并且热刷新
+date: 2017-07-16
 categories: blog
-tags: [swift]
+tags: [node]
 description: 使用lite-server快速搭建本地服务器并且热刷新
 
 ---

@@ -10,7 +10,7 @@ header-img: "img/green.jpg"
 
 # 联系方式
 
-*   Email：15038316985@163.com
+*   Email：17512530080@163.com
 *   QQ：1196631658/刘从军
 
 * * *
@@ -20,6 +20,8 @@ header-img: "img/green.jpg"
 *   刘从军/男/1990
 *   专科/河南商业高等专科学校 
 *   Github: <https://github.com/liucongjun>
-*   目前就职于：江苏南京思度科技公司
+*   曾就职于：江苏南京思度科技公司
+*   目前就职于：江苏南京云创大数据公司
+
 
 * * *

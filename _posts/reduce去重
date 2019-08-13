@@ -1,0 +1,95 @@
+从给数组中的对象去重看Javascript中的reduce()
+假设有这样一个数组：
+
+复制代码
+let person = [
+     {id: 0, name: "小明"},
+     {id: 1, name: "小张"},
+     {id: 2, name: "小李"},
+     {id: 3, name: "小孙"},
+     {id: 1, name: "小周"},
+     {id: 2, name: "小陈"},   
+]
+复制代码
+我们想去掉数组中id重复的对象，比如同样id为2的两个对象——
+
+{id: 2, name: "小李"}和{id: 2, name: "小陈"} （去掉任何一个都可以）
+我们该如何去做呢？
+
+事实上，对于数组对象，传统的去重方法无能为力，至于forEach()、filter()等迭代方法也不好使；真正能做到优雅去重的，是ES5新增加的一个方法——reduce()
+
+reduce()方法接收一个回调函数作为第一个参数，回调函数又接受四个参数，分别是：
+
+ 
+
+1.previousValue => 初始值或上一次回调函数叠加的值；
+
+2. currentValue => 本次回调（循环）将要执行的值；
+
+3. index =>“currentValue”的索引值；
+
+4. arr => 数组本身；
+
+ reduce()方法返回的是最后一次调用回调函数的返回值；
+
+let log = console.log.bind(console);
+let arr = [1,2,3,4,5,6];
+arr = arr.reduce((previousValue, currentValue) => {
+     return previousValue + currentValue; //返回的是最后一次调用回调函数的值，15+6；
+})
+log(arr); // 21
+可以看出，上面代码的最终结果就是1+2+3+4+5+6 = 21；
+
+此外，reduce还可以接收第二参数initialValue，用来声明回调函数（第一个参数）的previousValue的类型和初始值；
+
+let log = console.log.bind(console);
+let arr = [1,2,3,4,5,6];
+arr = arr.reduce((previousValue,currentValue) => {
+     return previousValue + currentValue;
+}，0) //指定cur的类型为Number并且初始值为0，当设为1时，最终打印的值为22
+log(arr); // 21
+ 
+
+需要注意的是，如果设置了initialValue的值，第一次执行回调函数的previousValue的值等于initialValue，此时查看当前索引（index）为0；但如果不设置initialValue的值，previousValue的值为数组的第一项，并且索引值（index）为1；也就是说，不设置初始值的话reduce()方法实际是从第二次循环开始的！
+
+现在让我们回到文章开头的那个数组：
+
+复制代码
+let log = console.log.bind(console);
+let person = [
+     {id: 0, name: "小明"},
+     {id: 1, name: "小张"},
+     {id: 2, name: "小李"},
+     {id: 3, name: "小孙"},
+     {id: 1, name: "小周"},
+     {id: 2, name: "小陈"},   
+];
+
+let obj = {};
+
+person = person.reduce((cur,next) => {
+    obj[next.id] ? "" : obj[next.id] = true && cur.push(next);
+    return cur;
+},[]) //设置cur默认类型为数组，并且初始值为空的数组
+log(person);
+复制代码
+打印person后，我们就可以得到去重后的数组。
+
+当然， redecu()除了累加和去重外，功能还有很多，比如可以扁平化多维数组——
+
+var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function(a, b) {
+    return a.concat(b);
+}, []); // [0,1,2,3,4,5]
+ 
+
+再说句题外的，提到去重，很多人都会想到ES6的Set；不过根据我的实验，Set还是适合对基本类型的去重，如果Set中的每一项是对象的话，是不会去重的，j即使有的对象一模一样——
+
+复制代码
+let arr = new Set([
+    {id: 0, name: "小明"},
+    {id: 0, name: "小明"},
+    {id: 0, name: "小明"},
+    {id: 0, name: "小明"}      
+]);
+console.log([...arr]); //依旧是这4个对象
+复制代码

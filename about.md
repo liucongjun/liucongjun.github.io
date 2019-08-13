@@ -18,7 +18,7 @@ header-img: "img/green.jpg"
 # 个人信息
 
 *   刘从军/男/1990
-*   河南黄河科技学院 /计算机应用
+*   
 *   Github: <https://github.com/liucongjun>
 *   
 *   曾就职于：江苏南京云创大数据公司 网络部
